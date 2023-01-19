@@ -20,7 +20,7 @@ def infosParking(nomP): # infos sur le parking qu'on donne en paramètre avec de
 	f1.close()
 	tree = etree.parse(nomP+".txt")
 	os.remove(nomP+".txt") #delete le fichier pour pas remplir le dossier avec tout les parkings qu'on va utiliser (enlever cette ligne si on veut garder le fichier texte
-	for user in tree.xpath("Name"):		
+	for user in tree.xpath("Name"):
 		print('Nom du parking :',user.text)
 	for user in tree.xpath("Total"):
 		print('Nombre total de places :',user.text)
