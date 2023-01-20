@@ -18,17 +18,17 @@ def ecarttype(Liste, Moy):
     variance=variance/len(Liste)
     return sqrt(variance)
 
-def covariance(Liste_x, Liste_y, Moy_x, Moy_y):
+def covariance(Liste1, Liste2, Moy1, Moy2):
     Resultat = 0
-    L=len(Liste_x)
+    L=len(Liste1)
     for i in range(L):
-        resultat += (Liste_x[i]-Moy_x)*(Liste_y[i]-Moy_y)
+        resultat += (Liste1[i]-Moy1)*(Liste2[i]-Moy2)
     Resultat=Resultat/L
     return Resultat
 
-def correlation(Liste_x, Liste_y, Moy_x, Moy_y):
-    ecarttype_x=ecarttype(Liste_x, Moy_x)
-    ecarttype_y=ecarttype(Liste_y, Moy_y)
-    if ecarttype_x==0: ecarttype_x = 1/1000000000
-    if ecarttype_y==0: ecarttype_y = 1/1000000000
-    return covariance(Liste_x, Liste_y, Moy_x, Moy_y)*1/(ecarttype_x*ecarttype_y)
+def correlation(Liste1, Liste2, Moy1, Moy2):
+    ecarttype1=ecarttype(Liste1, Moy1)
+    ecarttype2=ecarttype(Liste2, Moy2)
+    if ecarttype1==0: ecarttype1 = 1/1000000000
+    if ecarttype2==0: ecarttype2 = 1/1000000000
+    return covariance(Liste1, Liste2, Moy1, Moy2)*1/(ecarttype1*ecarttype2)
