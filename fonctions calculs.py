@@ -1,8 +1,6 @@
 from math import sqrt
 
 
-Liste=[12,20,8,4,15]
-
 def pourcentage(x,y):
     return x/(y/100)
 
@@ -34,7 +32,3 @@ def correlation(Liste_x, Liste_y, Moy_x, Moy_y):
     if ecarttype_x==0: ecarttype_x = 1/1000000000
     if ecarttype_y==0: ecarttype_y = 1/1000000000
     return covariance(Liste_x, Liste_y, Moy_x, Moy_y)*1/(ecarttype_x*ecarttype_y)
-m=moyenne(Liste)
-
-var=ecarttype(Liste,m)
-print(var)
