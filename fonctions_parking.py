@@ -123,6 +123,7 @@ def placesLibresEtNoms(parking): # avoir les places libres et avec le nom du par
 def TempsParking(nomP:str,nbTours,temps):
 	for i in range(0,nbTours):
 		response=requests.get("https://data.montpellier3m.fr/sites/default/files/ressources/"+nomP+".xml")
+		
 		print(response.text)
 		time.sleep(temps)
 		
@@ -193,25 +194,48 @@ def getDate(nomP,parking): # avoir les date de la dernière mis à jour des donn
 def getpourcentagePlacelibre(nomP,parking):
 	nbFree1=0
 	nbTotal1=0
-	for i in range (0,len(parking)): 
-		res=requests.get("https://data.montpellier3m.fr/sites/default/files/ressources/"+nomP+".xml")
-		f2=open(nomP+".txt","w",encoding='utf-8')
-		f2.write(res.text)
-		f2.close()
-		tree = etree.parse(nomP+".txt") 
-		os.remove(nomP+".txt") #delete le fichier pour pas remplir le fichier avec tout les parkings qu'on va utiliser
-		for us in tree.xpath("Free"): # on parcours ce qu'il y a dans la balise Free  
+	
+	i=0
+	#for i in range (0,len(parking)): 
+	res=requests.get("https://data.montpellier3m.fr/sites/default/files/ressources/"+nomP+".xml")
+	f2=open(nomP+"1.txt","w",encoding='utf-8')
+	f2.write(res.text)
+	f2.close()
+	tree = etree.parse(nomP+"1.txt") 
+	os.remove(nomP+"1.txt") #delete le fichier pour pas remplir le fichier avec tout les parkings qu'on va utiliser
+	for us in tree.xpath("Free"): # on parcours ce qu'il y a dans la balise Free  
 		
-			nbFree=int(us.text) #J'attribue a la variable free le nombre de places libres	
-			nbFree1=nbFree1+int(us.text)
-		for us in tree.xpath("Total"):
+		nbFree=int(us.text) #J'attribue a la variable free le nombre de places libres	
+		nbFree1=nbFree1+int(us.text)
+			
+	for us in tree.xpath("Total"):
 		
-			nbTotal=int(us.text)
-			nbTotal1=nbTotal1+int(us.text)
-		pourcentage=(nbFree/nbTotal)*100	
-		print("pourcentage : de places dans le parking: ",format(pourcentage,'.2f'))
-		print("-----------------------------------------------------------------------")
+		nbTotal=int(us.text)
+		nbTotal1=nbTotal1+int(us.text)
+	for us in tree.xpath("DateTime"):
+		temps=us.text
+		
+		#pourcentage=(nbFree/nbTotal)*100	
+		# ~ print("pourcentage : de places dans le parking: ",format(pourcentage,'.2f'))
+		# ~ print("-----------------------------------------------------------------------")
 	pourcentagePlaces=(nbFree1/nbTotal1)*100
-	return pourcentagePlaces
-ss=getpourcentagePlacelibre("FR_MTP_ANTI",parkings)
-print(ss)
+	i+=1
+	f1=open(nomP+".txt","a",encoding='utf-8')
+	
+	f1.write(format(pourcentagePlaces,'.2f')+","+temps)
+	f1.write("\n")
+	f1.close()
+	
+	return format(pourcentagePlaces,'.2f')
+
+# ~ ss=getpourcentagePlacelibre("FR_MTP_ANTI",parkings)
+# ~ print(ss)
+def getPlH(nomP,nbTours,temps,parking):
+	for i in range(0,nbTours):
+		for j in range(len(parking)):
+
+			response=requests.get("https://data.montpellier3m.fr/sites/default/files/ressources/"+parking[i]+".xml")
+			free=getpourcentagePlacelibre(parking[i],parking)
+		# ~ time.sleep(temps)
+		print(free)
+	
