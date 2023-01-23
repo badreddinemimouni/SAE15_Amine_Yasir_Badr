@@ -22,7 +22,7 @@ def covariance(Liste1, Liste2, Moy1, Moy2):
     Resultat = 0
     L=len(Liste1)
     for i in range(L):
-        resultat += (Liste1[i]-Moy1)*(Liste2[i]-Moy2)
+        Resultat += (Liste1[i]-Moy1)*(Liste2[i]-Moy2)
     Resultat=Resultat/L
     return Resultat
 
