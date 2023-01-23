@@ -1,4 +1,7 @@
 from fonctions_calculs import *
+from fonctions_velomag import *
+import matplotlib.pyplot as plt
+
 parkings=['FR_MTP_CORU','FR_MTP_FOCH']
 tab2=[]
 tab3=[]
@@ -67,3 +70,8 @@ print('-----------let sog')
 print(format(covarianca),'.2f')
 correlatione=correlation(tab3,tab5,moyenneTout,moyenneTout1)
 print(correlatione)
+
+
+dates=getDateVelo(19819815)
+print(dates)
+
