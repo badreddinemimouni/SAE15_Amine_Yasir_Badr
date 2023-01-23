@@ -13,9 +13,11 @@ for ligne in lignes:
 for ligne2 in lignes:
     ligne2=ligne2.replace('\n','')
     donnees2=ligne2.split(',')
-    tab2.append(donnees[1])
+    tab2.append(donnees2[1])
 
+#print(tab2)
 plt.plot(tab)
-plt.ylabel(tab2)
-plt.xlabel(tab2)
+plt.plot_date(tab2,tab)
+plt.ylabel('pourcentage')
+plt.xlabel('heures')
 plt.show()
