@@ -16,10 +16,10 @@ def getRequest(UrlSite:str,nomFic:str): # je fais cette fonction afin de moins √
 
 def getRequest2(UrlSite:str,nomFic:str): # avoir le json en .txt
 	res=requests.get(UrlSite)
-	f1=open(nomFic+".txt",'w',encoding='utf-8')
+	f1=open(nomFic+".json",'w',encoding='utf-8')
 	f1.write(res.text)
 	f1.close()
-	with open(nomFic+".txt") as mon_fichier:
+	with open(nomFic+".json") as mon_fichier:
 		da=json.load(mon_fichier)
 	return da
 	
@@ -104,24 +104,27 @@ def getDateVelo(secondes):
 
 # ~ da=getDate(st)
 # ~ print(da)
-def getpourcentageVelo(ficjson1,ficjson2):
+def getpourcentageVelo(idp:str,ficjson1,ficjson2):
 	station=ficjson2['data']['stations']
+	dern=ficjson2['last_updated']
+	dern2=getDateVelo(dern)
+	#for i in range(0,9):
+	#indice=getIndice(idp,ficjson1)
+
+	#idp=station[indice]['station_id']
+	total=getCapacity(ficjson2,idp)
+	free=getVeloQuaiDisponible(idp,ficjson1)
+		
+	secondes=getDernierMaj(idp,ficjson1)
+	dateExacte=getDateVelo(secondes)
+	pourcentage=(free/total)*100
+	f2=open(idp+".txt",'a',encoding='utf-8')
+	f2.write(idp+","+format(pourcentage,'.2f')+","+str(secondes)+","+dateExacte+','+str(dern2))
+	f2.write("\n")
+	f2.close()
 	
-	for i in range(0,9):
-		idp=station[i]['station_id']
-		#indice=getIndice(idp,ficjson1)
-		total=getCapacity(ficjson2,idp)
-		free=getVeloQuaiDisponible(idp,ficjson1)
+	print (str(dern)+','+str(dern2))
 
-		secondes=getDernierMaj(idp,ficjson1)
-		dateExacte=getDateVelo(secondes)
-		pourcentage=(free/total)*100
-		f2=open(idp+".txt",'a',encoding='utf-8')
-		f2.write(idp+","+format(pourcentage,'.2f')+","+str(secondes)+","+dateExacte)
-		f2.write("\n")
-		f2.close()
-	print (pourcentage)
-
-#pl=getpourcentageVelo(ss,so)
-#print(pl)
+pl=getpourcentageVelo('001',ss,so)
+print(pl)
 # faire un json pour la partie parking voitures et velos aussi pour stock√©

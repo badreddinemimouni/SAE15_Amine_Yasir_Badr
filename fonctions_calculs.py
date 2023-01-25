@@ -32,3 +32,7 @@ def correlation(Liste1, Liste2, Moy1, Moy2):
     if ecarttype1==0: ecarttype1 = 1/1000000000
     if ecarttype2==0: ecarttype2 = 1/1000000000
     return covariance(Liste1, Liste2, Moy1, Moy2)*1/(ecarttype1*ecarttype2)
+
+
+#SELECT pkey_users FROM students WHERE semestre = S1 AND departement=RT AND annee =2012 
+#SELECT 

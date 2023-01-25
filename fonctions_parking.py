@@ -198,11 +198,11 @@ def getpourcentagePlacelibre(nomP,parking):
 	i=0
 	#for i in range (0,len(parking)): 
 	res=requests.get("https://data.montpellier3m.fr/sites/default/files/ressources/"+nomP+".xml")
-	f2=open(nomP+"1.txt","w",encoding='utf-8')
+	f2=open(nomP+"15.txt","w",encoding='utf-8')
 	f2.write(res.text)
 	f2.close()
-	tree = etree.parse(nomP+"1.txt") 
-	os.remove(nomP+"1.txt") #delete le fichier pour pas remplir le fichier avec tout les parkings qu'on va utiliser
+	tree = etree.parse(nomP+"15.txt") 
+	os.remove(nomP+"15.txt") #delete le fichier pour pas remplir le fichier avec tout les parkings qu'on va utiliser
 	for us in tree.xpath("Free"): # on parcours ce qu'il y a dans la balise Free  
 		
 		nbFree=int(us.text) #J'attribue a la variable free le nombre de places libres	
