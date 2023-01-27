@@ -9,7 +9,7 @@ Durant ce mini projet nous avons écrit plusieurs programmes python, afin de rec
 
 ![Open data](Images/opendata.jpg)
 
-
+<br>
 ## Notre démarche :
 
 Premièrement avant de commencer le miniprojet, nous nous sommes posé des questions sur le projet avant de commencer quoi que ce soit. 
