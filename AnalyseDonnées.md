@@ -5,10 +5,9 @@
 ## Description du miniprojet :
 
 
-Durant ce mini projet nous avons du faire un programme python, afin de recueillir des données d'un site, et les analyser.
+Durant ce mini projet nous avons écrit plusieurs programmes python, afin de recueillir les données du site open data de Montpellier, dans le but de les analyser.
 
-
-
+![Open data](Images/opendata.jpg)
 
 
 ## Notre démarche :
@@ -32,10 +31,10 @@ La librairie fonctions_calculs a été fait par Yasir Akhrouf, la librairie fonc
 Pour l'analyse nous nous sommes consacrés sur 2 parkings voitures avec leur stand vélo. Nous avons choisis les parkings de Corum et Foch.
 
 
-Nous avons calculé la moyenne des pourcentages de remplissage des 2 parkings à chaque heure avec le fichier python nommé TraitementDonnées. 
+Nous avons calculé la moyenne des pourcentages de remplissage des parkings à chaque heure avec le fichier python nommé TraitementDonnées. 
 Ce fichier nous retourne la moyenne des parkings à chaque heure, l'écart type, la covariance et la corrélaton.
 
 
-Au vu des données traitées juste au dessus des parkings voitures de la ville de Montpellier et du parking , nous ne pouvons pas établir une corrélation puisque il n' y a aucun lien qui prouve que  le parking vélo a un taux d’occupation qui est en relation avec l’usage de la voiture. 
+Au vu des données traitées juste au dessus des parkings voitures de la ville de Montpellier et du parking , nous ne pouvons pas établir une corrélation puisque il n'y a aucun lien qui prouve que le parking vélo a un taux d’occupation qui est en relation avec l’usage de la voiture. 
 
-On peut constater que nous avons commencé à récupérer les données le 22 janvier à 10h et que jusqu'à 19h, le nombre de places occupés des 2 parkings choisis varient légèrement, ce qui parraît logique vu que c'est un dimanche. 
+On peut constater que nous avons commencé à récupérer les données le 26 janvier à 10h et que jusqu'à 19h, le nombre de places occupés de  chaque parking choisi varie légèrement. 
