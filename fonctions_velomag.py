@@ -115,16 +115,15 @@ def getpourcentageVelo(idp:str,ficjson1,ficjson2):
 	total=getCapacity(ficjson2,idp)
 	free=getVeloQuaiDisponible(idp,ficjson1)
 		
-	secondes=getDernierMaj(idp,ficjson1)
-	dateExacte=getDateVelo(secondes)
+	
 	pourcentage=(free/total)*100
 	f2=open(idp+".txt",'a',encoding='utf-8')
-	f2.write(idp+","+format(pourcentage,'.2f')+","+str(secondes)+","+dateExacte+','+str(dern2))
+	f2.write(idp+","+format(pourcentage,'.2f')+str(dern2))
 	f2.write("\n")
 	f2.close()
 	
 	print (str(dern)+','+str(dern2))
 
-pl=getpourcentageVelo('001',ss,so)
-print(pl)
+#pl=getpourcentageVelo('001',ss,so)
+#print(pl)
 # faire un json pour la partie parking voitures et velos aussi pour stocké
