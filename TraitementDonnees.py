@@ -1,10 +1,7 @@
 from fonctions_calculs import *
 from fonctions_velomag import *
 import matplotlib.pyplot as plt
-for s in range(0,9):
-	f6=open(str(s)+'heure.txt','w')
-	f6.write('')
-	f6.close()
+
 parkings=['FR_MTP_ANTI','FR_MTP_COME','FR_MTP_CORU','FR_MTP_EURO','FR_MTP_FOCH','FR_MTP_GAMB','FR_MTP_GARE']#on chosit les parkings que l'on veut et on les met dans le tableau
 les_id=['001','002','005','007','009','016','023','021',] # on choisit les parkings que l'on veut et on met leurs id dans le tableau
 tab2=[]
@@ -30,7 +27,7 @@ for i in range(len(parkings)):
 		ligne=ligne.replace('\n','')
 		donnees=ligne.split(',')
 		tab.append(float(donnees[0]))
-	#print(tab)
+	
 
 	moy_h=[]
 	tab_h=[tab1,tab2,tab3,tab4,tab5,tab6,tab7,tab8]
@@ -49,13 +46,12 @@ for i in range(len(parkings)):
 #print(tab1)
 	#print(moy_h)
 	moyenneG=moyenne(moy_h)
-#print(moyenneG)	
+print("La moyenne des pourcentages de parkings de la journée est de :"+format(moyenneG,'.2f'))	
 	
 ecarttype_voiture=ecarttype(moy_h,moyenneG)
-#print(ecarttype_voiture)	
+print("l'ecart type des moyennes de pourcentage de places libres par heure(voitures) : "+format(ecarttype_voiture,'.2f'))
 
 
-	
 	
 	
 
@@ -98,7 +94,6 @@ for l in range(len(les_id)):
 
 
 
-#--------------------------------------------------------------------------------------------------- cette partie au dessus je creer des fichiers et chaque fichier correspond a une heure et il stocke dedeans les donnees de tout les parkings a cette heure ci
 	nom_tab=[tab10,tab11,tab12,tab13,tab14,tab15,tab16,tab19,tab22]
 	tab_moy=[]
 	for j in range(len(nom_tab)):
@@ -117,20 +112,10 @@ for l in range(len(les_id)):
 #print(tab22)
 #print(tab_moy)
 moyenneG_velo=moyenne(tab_moy)
-#print(moyenneG_velo)
+print("la moyenne des porucentage des places libres à ce jour (vélo) : " +format(moyenneG_velo,'.2f'))
 ecarttype_velo=ecarttype(tab_moy,moyenneG_velo)
-print(ecarttype_velo)
+print("l'ecart type des moyennes de pourcentages de places libres par heure (vélo) : "+format(ecarttype_velo,'.2f'))
 print('---------------')
 covariances=covariance(moy_h,tab_moy,moyenneG,moyenneG_velo)
-print(covariances)
+print("la covariance des deux types de véhicules est de:"+format(covariances,'.2f'))
 
-tab_heures=['10h','11h','12h','13h','14h','15h','16h','19h','22h']
-	
-
-plt.plot(tab_moy)
-#plt.plot_date(tab3)
-plt.title('Graphique moyennes place par heure')
-plt.plot_date(tab_heures,tab_moy)
-plt.ylabel('pourcentage')
-plt.xlabel('heures')
-plt.show()
