@@ -69,7 +69,11 @@ Ensuite nous avons aussi l'écart type des vélos qui est de 4,03. Les vélos ne
 L’écart-type est sensible aux valeurs aberrantes. Une seule valeur très aberrante peut accroître l’écart-type et, par le fait même, déformer le portrait de la dispersion.
 
 
-<br>
-Au vu des données traitées ci-dessus des parkings voitures de la ville de Montpellier et des parking vélo, nous ne pouvons pas établir une corrélation puisque il n'y a aucun lien qui prouve que le parking vélo a un taux d’occupation qui est en relation avec l’usage de la voiture. 
+Finalement avec l'écart type nous pouvons déterminer la covariance et la corrélation.
+Ici nous avons une corrélation de -1,03.
+Si la valeur de la covariance est de signe négatif cela signifie que les variables varient en sens inverse : les sujets qui ont des valeurs fortes sur une des deux variables auront tendance à avoir des valeurs faibles sur l’autre variable.
 
-On peut constater que nous avons commencé à récupérer les données le 26 janvier à 10h et que jusqu'à 19h, le nombre de places occupés de  chaque parking choisi varie légèrement. 
+Et la corrélation est de -0,10. La corrélation varie entre -1 et 1.
+Lorsqu'une valeur est proche de 0, cela indique que la relation entre les deux variables est faible.
+
+De ce fait nous pouvons en déduire que le relais voitures / vélos n'a aucun rapport entre l'usage des vélos et le stationnement dans les parkings.
