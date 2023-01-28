@@ -119,15 +119,3 @@ print('---------------')
 covariances=covariance(moy_h,tab_moy,moyenneG,moyenneG_velo)
 print("la covariance des deux types de véhicules est de:"+format(covariances,'.2f'))
 
-tab_heures=['10h','11h','12h','13h','14h','15h','16h','19h','22h']
-
-correlatione=correlation(moy_h,tab_moy,moyenneG,moyenneG_velo)
-print("la correlation est de : ",format(correlatione,'.2f'))
-plt.plot(tab_moy)
-plt.plot(moy_h)
-#plt.plot_date(tab3)
-
-plt.title('Comparaison de places libres moyenne/heure, orange= velo, bleu =voitures')
-
-plt.plot_date(tab_heures,tab_moy)
-plt.show()
