@@ -100,7 +100,7 @@ def getDernierMaj(idp:str,ficjson):
 # ~ st=getDernierMaj('005',ss)
 # ~ print(st)
 def getDateVelo(secondes):
-	return datetime.datetime.fromtimestamp(secondes).strftime('%Y-%m-%d %H:%M:%S')
+	return datetime.datetime.fromtimestamp(secondes).strftime('%H:%M:%S')
 
 # ~ da=getDate(st)
 # ~ print(da)
@@ -118,12 +118,12 @@ def getpourcentageVelo(idp:str,ficjson1,ficjson2):
 	
 	pourcentage=(free/total)*100
 	f2=open(idp+".txt",'a',encoding='utf-8')
-	f2.write(idp+","+format(pourcentage,'.2f')+str(dern2))
+	f2.write(idp+","+format(pourcentage,'.2f')+","+str(dern2))
 	f2.write("\n")
 	f2.close()
 	
 	print (str(dern)+','+str(dern2))
 
-#pl=getpourcentageVelo('001',ss,so)
-#print(pl)
+pl=getpourcentageVelo('045',ss,so)
+print(pl)
 # faire un json pour la partie parking voitures et velos aussi pour stocké
