@@ -124,6 +124,6 @@ def getpourcentageVelo(idp:str,ficjson1,ficjson2):
 	
 	print (str(dern)+','+str(dern2))
 
-pl=getpourcentageVelo('045',ss,so)
-print(pl)
+#pl=getpourcentageVelo('045',ss,so)
+#print(pl)
 # faire un json pour la partie parking voitures et velos aussi pour stocké
